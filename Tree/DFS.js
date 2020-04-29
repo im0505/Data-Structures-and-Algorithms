@@ -13,16 +13,15 @@ tree.insert(7);
 tree.insert(9);
 tree.insert(17);
 
-const arr = [];
-function DFS(node) {
-  let visit = [];
-  console.log(node.value);
-  arr.push(node.value);
-  if (!node.left && !node.right) return;
-  if (node.left) visit.push(DFS(node.left));
-  if (node.right) visit.push(DFS(node.right));
-
-  return visit;
+function DFS(tree) {
+  let data = [];
+  function traverse(node) {
+    data.push(node.value);
+    if (node.left) traverse(node.left);
+    if (node.right) traverse(node.right);
+  }
+  traverse(tree.root);
+  return data;
 }
-DFS(tree.root);
-console.log(arr);
+
+console.log(DFS(tree));
