@@ -26,7 +26,6 @@ function BFS(tree) {
     if (current.left) queue.push(current.left);
     if (current.right) queue.push(current.right);
   }
-
   return visited;
 }
 console.log(BFS(tree));
